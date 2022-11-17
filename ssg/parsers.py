@@ -6,7 +6,7 @@ class Parser:
     extensions:List[str]=[]
     def valid_extension(self,extension):
         return extension in self.extensions
-    def read(self,path)
+    def read(self,path):
         with open(path,"r") as file:
             return file.read()
     def write(self,path,dest,content,ext:".html"):
