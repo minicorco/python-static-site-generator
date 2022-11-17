@@ -3,9 +3,10 @@ from pathlib import Path
 class Site(self,source,dest):
     """docstring for ."""
 
-    def __init__(self, source,dest):
+    def __init__(self, source,dest,parsers=None):
         self.source=Path(source)
         self.dest=Path(dest)
+        parsers= parsers or []
 
     def create_dir(self,path):
         #command relative_to show  function works fine if one
@@ -18,3 +19,15 @@ class Site(self,source,dest):
         for path in self.source.rglob("*"):
             if path.is_dir():
                 self.create_dir(path)
+
+    def load_parser(self,extension):
+        for parser in self.parsers:
+            if parser.valid_extension(extension):
+                return parser
+
+    def run_parser(self,path):
+        parser=self.load_parser(path.suffix)
+        if parser is not None:
+            parser.parse(path,self.source,self.dest)
+        else:
+            print("NotImplemented")
