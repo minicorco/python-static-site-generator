@@ -17,7 +17,7 @@ class Parser:
         copy2(path,dest/path.relative_to(source))
     def parse(self,path:Path,source:Path,dest:Path):
         #els dos punts pareix que assignen tipus
-        raise NotImplemented Error
+        raise NotImplementedError
 
 class ResourceParser(Parser):
     extensions=[".jpg",".png",".gif",".css",".html"]
