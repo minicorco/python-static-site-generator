@@ -6,7 +6,7 @@ class Site(self,source,dest):
     def __init__(self, source,dest,parsers=None):
         self.source=Path(source)
         self.dest=Path(dest)
-        parsers= parsers or []
+        self.parsers= parsers or []
 
     def create_dir(self,path):
         #command relative_to show  function works fine if one
