@@ -3,8 +3,8 @@ from yaml import load, FullLoader
 from collections.abc import Mapping
 
 class Content(Mapping):
-    self.__delimiter="^(?:-|\+){3}\s*$"
-    self.__regex=re.compile(__delimeter,re.MULTILINE)
+    __delimiter="^(?:-|\+){3}\s*$"
+    __regex=re.compile(__delimeter,re.MULTILINE)
 
     @classmethod
     def load(cls, string):
